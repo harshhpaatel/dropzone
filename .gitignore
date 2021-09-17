@@ -77,3 +77,4 @@ typings/
 
 # Macs
 .DS_Store
+functions/config/keys.js

@@ -5,7 +5,7 @@
     "lint": "eslint .",
     "serve": "firebase emulators:start --only functions",
     "shell": "firebase functions:shell",
-    "start": "npm run shell",
+    "start": "nodemon ./bin/www",
     "deploy": "firebase deploy --only functions",
     "logs": "firebase functions:log",
     "node-start": "node ./bin/www"
@@ -15,11 +15,12 @@
   },
   "main": "index.js",
   "dependencies": {
-    "firebase-admin": "^9.8.0",
-    "firebase-functions": "^3.14.1",
+    "cloudinary": "^1.27.0",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "express": "~4.16.1",
+    "firebase-admin": "^9.8.0",
+    "firebase-functions": "^3.14.1",
     "http-errors": "~1.6.3",
     "jade": "~1.11.0",
     "morgan": "~1.9.1"
@@ -27,7 +28,8 @@
   "devDependencies": {
     "eslint": "^7.6.0",
     "eslint-config-google": "^0.14.0",
-    "firebase-functions-test": "^0.2.0"
+    "firebase-functions-test": "^0.2.0",
+    "nodemon": "^2.0.12"
   },
   "private": true
 }
