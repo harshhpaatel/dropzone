@@ -8,13 +8,15 @@
     "start": "nodemon ./bin/www",
     "deploy": "firebase deploy --only functions",
     "logs": "firebase functions:log",
-    "node-start": "node ./bin/www"
+    "node-start": "node ./bin/www",
+    "test": "mocha --reporter spec --exit"
   },
   "engines": {
     "node": "14"
   },
   "main": "index.js",
   "dependencies": {
+    "chai": "^4.3.4",
     "cloudinary": "^1.27.0",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
@@ -29,6 +31,7 @@
     "eslint": "^7.6.0",
     "eslint-config-google": "^0.14.0",
     "firebase-functions-test": "^0.2.0",
+    "mocha": "^9.1.1",
     "nodemon": "^2.0.12"
   },
   "private": true

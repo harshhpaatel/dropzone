@@ -9,7 +9,7 @@ const CLOUDINARY_STATUS_ENDPOINT =
 const SHORT_URL_HOST = "https://go.dradh.com";
 
 /* GET - Health status of imaging service  */
-router.post("/status", async function (req, res, next) {
+router.get("/status", async function (req, res, next) {
   const response = await fetch(CLOUDINARY_STATUS_ENDPOINT);
   const data = await response.json();
 

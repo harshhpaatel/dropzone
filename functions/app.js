@@ -41,6 +41,7 @@ cloudinary.config({
   api_secret: CLOUDINARY_API_SECRET,
 });
 
+app.use("/", require("./routes/index"));
 app.use("/images", require("./routes/images"));
 
 // catch 404 and forward to error handler
