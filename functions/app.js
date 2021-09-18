@@ -4,8 +4,12 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 var cloudinary = require("cloudinary");
+const cors = require("cors");
 
 var app = express();
+
+// Cors middleware
+app.use(cors({ origin: true }));
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
