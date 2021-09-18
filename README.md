@@ -23,7 +23,7 @@ Follow the steps below to use this app locally.
 
 ### `npm start`
 Runs the app in the development mode.\
-Use the endpoint [localhost:5003](localhost:5003)
+Use the endpoint [localhost:5003](http://localhost:5003)
 
 Running this command will start nodemon where the server will restart if you make edits.
 
@@ -33,7 +33,7 @@ Launches the test runner.
 
 ### `firebase serve`
 
-Launches the firebase emulator for the app. Use the endpoint [localhost:5001/dropzone-dev/us-central1/api](localhost:5001/dropzone-dev/us-central1/api)
+Launches the firebase emulator for the app. Use the endpoint [localhost:5001/dropzone-dev/us-central1/api](http://localhost:5001/dropzone-dev/us-central1/api)
 
 ### Prerequisites
 
