@@ -6,6 +6,8 @@ var fetch = require("node-fetch");
 const CLOUDINARY_STATUS_ENDPOINT =
   "https://status.cloudinary.com/api/v2/status.json";
 
+const SHORT_URL_HOST = "https://go.dradh.com";
+
 /* GET - Health status of imaging service  */
 router.post("/status", async function (req, res, next) {
   const response = await fetch(CLOUDINARY_STATUS_ENDPOINT);
@@ -27,14 +29,28 @@ router.post("/", function (req, res, next) {
   cloudinary.v2.uploader.upload(
     data.image,
     { public_id: data.public_id ? data.public_id : null },
-    function (error, result) {
+    async function (error, result) {
       if (error) {
         res.send(error);
       } else {
+        // Create a short-friendly url
+        const url_body = {
+          url: result.secure_url,
+          customext: "",
+        };
+        const response = await fetch(`${SHORT_URL_HOST}/api/shorten`, {
+          method: "post",
+          body: JSON.stringify(url_body),
+          headers: { "Content-Type": "application/json" },
+        });
+        const response_data = await response.json();
+
+        // Return object
         return_data = {
           public_id: result.public_id,
           url: result.url,
           secure_url: result.secure_url,
+          friendly_url: `${SHORT_URL_HOST}/${await response_data.hash}`,
         };
         res.send(return_data);
       }
