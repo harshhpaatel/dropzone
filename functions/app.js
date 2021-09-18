@@ -1,15 +1,19 @@
-var createError = require("http-errors");
-var express = require("express");
-var path = require("path");
-var cookieParser = require("cookie-parser");
-var logger = require("morgan");
-var cloudinary = require("cloudinary");
+const createError = require("http-errors");
+const express = require("express");
+const path = require("path");
+const cookieParser = require("cookie-parser");
+const logger = require("morgan");
+const cloudinary = require("cloudinary");
 const cors = require("cors");
 
-var app = express();
+const app = express();
 
 // Cors middleware
-app.use(cors({ origin: true }));
+app.use(
+  cors({
+    origin: true,
+  })
+);
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
@@ -17,7 +21,11 @@ app.set("view engine", "jade");
 
 app.use(logger("dev"));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(
+  express.urlencoded({
+    extended: false,
+  })
+);
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
@@ -33,8 +41,6 @@ cloudinary.config({
   api_secret: CLOUDINARY_API_SECRET,
 });
 
-app.use("/", require("./routes/index"));
-app.use("/users", require("./routes/users"));
 app.use("/images", require("./routes/images"));
 
 // catch 404 and forward to error handler
